@@ -120,6 +120,8 @@ const getTarifasByTypeAndData = async (req, res) => {
 
 
 
+
+
 module.exports = {
     getTarifas, getById, createTarifa, updateTarifa, getByName, getBytype, deleteTarifa, getByData, getTarifasByTypeAndData
 }
