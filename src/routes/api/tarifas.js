@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const tarifasController = require('../../controllers/tarifas.controller');
+const urlFriendlyMiddleware = require('../../helpers/middleware')
 
 // Obtener todas las tarifas
 router.get('/', tarifasController.getTarifas);
