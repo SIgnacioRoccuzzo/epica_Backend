@@ -81,14 +81,14 @@ const deleteTarifa = async (req, res) => {
 }
 
 
-const getByData = async (req, res) => {
+const getByGb = async (req, res) => {
     try {
-        const { tarifasData } = req.params;
+        const { tarifasGb } = req.params;
 
-        const tarifas = await Tarifas.find({ data: tarifasData });
+        const tarifas = await Tarifas.find({ gb: tarifasGb });
 
         if (!tarifas || tarifas.length === 0) {
-            return res.status(404).json({ message: 'No se encontraron tarifas con esa data' });
+            return res.status(404).json({ message: 'No se encontraron tarifas con esos GB' });
         }
 
         res.json(tarifas);
@@ -97,31 +97,22 @@ const getByData = async (req, res) => {
     }
 };
 
-const getTarifasByTypeAndData = async (req, res) => {
+const getBySpeed = async (req, res) => {
     try {
-        const { type, data } = req.params; // obtenemos type y data de los parámetros de la URL
+        const { tarifasSpeed } = req.params;
 
-        // Buscar en la base de datos tarifas donde el type y data coincidan con los valores proporcionados
-        const tarifas = await Tarifas.find({ type, data });
+        const tarifas = await Tarifas.find({ speed: tarifasSpeed });
 
-        if (tarifas.length === 0) {
-            return res.status(404).json({ message: 'No se encontraron tarifas con esos criterios' });
+        if (!tarifas || tarifas.length === 0) {
+            return res.status(404).json({ message: 'No se encontraron tarifas con esos Speed' });
         }
 
-        // Devuelve las tarifas encontradas
         res.json(tarifas);
     } catch (error) {
-        console.error('Error al buscar tarifas:', error); // Mensaje para depuración
-        res.status(500).json({ message: 'Error al buscar tarifas', error });
+        res.status(500).json({ message: 'Error al buscar tarifas por tipo', error });
     }
 };
 
-
-
-
-
-
-
 module.exports = {
-    getTarifas, getById, createTarifa, updateTarifa, getByName, getBytype, deleteTarifa, getByData, getTarifasByTypeAndData
+    getTarifas, getById, createTarifa, updateTarifa, getByName, getBytype, deleteTarifa, getByGb, getBySpeed
 }

@@ -1,18 +1,21 @@
 
 
-GET http://localhost:3000/api/tarifas/662e26cb38a7ec7e6eddcbff
+GET http://localhost:3000/api/tarifas/
 
 
 ###
 
-GET http://localhost:3000/api/tarifas/type/fibra
+GET http://localhost:3000/api/tarifas/type/Fibra y Móvil
+
+###
+GET http://localhost:3000/api/tarifas/speed/600Mb
 
 ###
 
 GET http://localhost:3000/api/tarifas/name/Plan Oro
 
 ###
-GET http://localhost:3000/api/tarifas/data/Móvil 120GB + ilimitadas
+GET http://localhost:3000/api/tarifas/gb/libre
 
 ###
 GET http://localhost:3000/api/tarifas/type/movil/data/Móvil 120GB + ilimitadas
@@ -24,11 +27,12 @@ POST http://localhost:3000/api/tarifas
 Content-Type: application/json
 
 {
+    "extras": [],
     "type": "Móvil",
-    "name": "Plan Prueba",
-    "data":"Móvil 100GB + ilimitadas",
-    "price": 10.90
-   
+    "name": "Plan de Prueba",
+    "gb": "libre",
+    "minutes": "ilimitadas",
+    "price": 25.95
 }
 
 ###

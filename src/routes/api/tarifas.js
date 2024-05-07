@@ -15,10 +15,10 @@ router.get('/type/:tarifastype', tarifasController.getBytype);
 router.get('/name/:tarifasName', tarifasController.getByName);
 
 // Obtener por datos
-router.get('/data/:tarifasData', tarifasController.getByData);
+router.get('/gb/:tarifasGb', tarifasController.getByGb);
 
-// Obtener por tipo y datos
-router.get('/type/:type/data/:data', tarifasController.getTarifasByTypeAndData);
+// Obtener por datos
+router.get('/speed/:tarifasSpeed', tarifasController.getBySpeed);
 
 //Crear tarifa
 router.post('/', tarifasController.createTarifa);
